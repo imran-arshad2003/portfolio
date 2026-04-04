@@ -17,13 +17,13 @@ const arr = [
     "Project Name": "Weather App",
     "Live URL": "https://weatherapp-pied-nine.vercel.app/",
     "Github URL": "https://github.com/imran-arshad2003/weatherapp",
-    "image": "./images/weather.png"
+    "image": "/images/weather.png"
   },
   {
     "Project Name": "Expense Tracker",
     "Live URL": "https://expensetracker-9tqi9gkfd-imran-arshad2003s-projects.vercel.app/dashboard",
     "Github URL": "https://github.com/imran-arshad2003/expensetracker",
-    "image": "./images/expensetracker.png"
+    "image": "/images/expensetracker.png"
   }
 ]
 
@@ -52,7 +52,7 @@ const App = () => {
     const data = await response.json();
      if (data.success) {
     setResult("Success!");
-    event.target.reset();  // ← clears all form fields
+    event.target.reset();
   } else {
     setResult("Error");
   }
@@ -109,7 +109,7 @@ const App = () => {
           <img
             className="w-2/3 sm:w-1/3 mt-10 ml-15 sm:rounded-none rounded-2xl shadow-2xl"
             style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.6)' }}
-            src="./images/bgmain.png"
+            src="/images/bgmain.png"
             alt=""
           />
 
@@ -143,7 +143,7 @@ const App = () => {
           {/* TiltedCard — centred on mobile, fixed size on desktop */}
           <div className="flex justify-center md:block flex-shrink-0">
             <TiltedCard
-              imageSrc="./images/bg2.png"
+              imageSrc="/images/bg2.png"
               altText="Tilting Card Image"
               containerHeight="400px"
               containerWidth="400px"
@@ -294,8 +294,8 @@ const App = () => {
       </div>
 
       {/* Projects Section */}
-      <div id="projects"  className='bg-[#141717ff] min-h-screen flex flex-col px-4 sm:px-8 md:px-12  '>
-        <div className='rounded-full  text-center w-1/9 px-6 py-2 '
+      <div id="projects" className='bg-[#141717ff] min-h-screen flex flex-col px-4 sm:px-8 md:px-12'>
+        <div className='rounded-full text-center w-1/9 px-6 py-2'
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(12px)',
@@ -308,10 +308,9 @@ const App = () => {
         </div>
 
         {/* Projects grid — 1 col on mobile, 2 on sm, 3 on lg */}
-        <div className='mt-7  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className='mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {arr.map((item, index) => {
             return (
-
               <Projects
                 key={index}
                 name={item['Project Name']}
@@ -324,8 +323,8 @@ const App = () => {
         </div>
       </div>
 
-      <div id="reviews" className='bg-[#141717ff] min-h-screen flex flex-col px-4 sm:px-8 md:px-12  '>
-         <div className='rounded-full  text-center w-1/9 px-6 py-2 '
+      <div id="reviews" className='bg-[#141717ff] min-h-screen flex flex-col px-4 sm:px-8 md:px-12'>
+        <div className='rounded-full text-center w-1/9 px-6 py-2'
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(12px)',
@@ -335,10 +334,8 @@ const App = () => {
           }}
         >
           <h1 className='text-[#ef4141] text-xl sm:text-3xl font-bold'>Reviews</h1>
-          
         </div>
         <Reviews />
-
       </div>
 
     </div>
