@@ -10,6 +10,7 @@ import { useState } from 'react';
 import LightRays from './components/LightRays';
 import Projects from './components/Projects';
 import Reviews from './components/Reviews';
+import './index.css'
 
 
 const arr = [
@@ -50,23 +51,25 @@ const App = () => {
     });
 
     const data = await response.json();
-    if (data.success) {
-      setResult("Success!");
-      event.target.reset();
-    } else {
-      setResult("Error");
-    }
+     if (data.success) {
+    setResult("Success!");
+    event.target.reset();
+  } else {
+    setResult("Error");
+  }
   }
 
   return (
     <div className='min-h-screen overflow-x-hidden'>
       <Navbar />
 
-      {/* ── Hero Section ── */}
+      {/* Hero Section */}
       <div id="home" className="relative flex text-9xl text-left h-screen">
 
         <div className="absolute inset-0 h-full z-0 pointer-events-auto">
+
           <SplashCursor />
+
           <GradientBlinds
             gradientColors={['#FF9FFC', '#5227FF']}
             angle={0}
@@ -83,11 +86,11 @@ const App = () => {
           />
         </div>
 
-        {/* Hero content */}
-        <div className="relative z-10 flex flex-col md:flex-row w-full items-center justify-center md:justify-start pointer-events-none text-[#ef4141] gap-6 md:gap-0 px-6 md:px-0 pt-20 md:pt-0">
+        {/* Hero content — stacks vertically on mobile, row on md+ */}
+        <div className="relative z-10 flex flex-col md:flex-row w-full items-center justify-center md:justify-start pointer-events-none text-[#ef4141] gap-4 md:gap-0 px-6 md:px-0 pt-20 md:pt-0">
 
-          {/* Typing text */}
-          <div className="w-full md:w-64 flex justify-center md:justify-start">
+          {/* Typing text — smaller on mobile */}
+          <div className="w-full md:w-64 flex justify-center md:justify-start text-2xl sm:text-5xl md:text-9xl">
             <TextType
               text={["I'M IMRAN"]}
               typingSpeed={75}
@@ -105,10 +108,10 @@ const App = () => {
 
           {/* Hero image */}
           <img
-            className="w-1/2 sm:w-2/5 md:w-1/3 mt-4 md:mt-10 md:ml-15 rounded-2xl md:rounded-none shadow-2xl"
+            className="w-1/2 sm:w-[480px] mt-4 md:mt-10 md:ml-15 rounded-2xl sm:rounded-none shadow-2xl"
             style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.6)' }}
             src="/images/bgmain.png"
-            alt="Imran"
+            alt=""
           />
 
           {/* Headline */}
@@ -118,8 +121,8 @@ const App = () => {
         </div>
       </div>
 
-      {/* ── About Section ── */}
-      <div id="about" className='bg-[#141717ff] relative min-h-screen w-full flex flex-col px-4 sm:px-8 md:px-16 overflow-x-hidden py-16 md:py-0'>
+      {/* About Section */}
+      <div id="about" className='bg-[#141717ff] relative min-h-screen w-full flex flex-col px-4 sm:px-8 md:px-16 overflow-x-hidden py-12 md:py-0'>
 
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Particles
@@ -135,18 +138,18 @@ const App = () => {
           />
         </div>
 
-        {/* About card row */}
-        <div className='relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 py-10 px-2 sm:px-6 md:px-10'>
+        {/* About card row — stacks on mobile */}
+        <div className='flex flex-col md:flex-row gap-6 md:gap-10 py-10 px-2 sm:px-6 md:px-10'>
 
-          {/* TiltedCard — full width on mobile */}
-          <div className="flex justify-center md:block flex-shrink-0 w-full md:w-auto">
+          {/* TiltedCard — centred on mobile, fixed size on desktop */}
+          <div className="flex justify-center md:block flex-shrink-0">
             <TiltedCard
               imageSrc="/images/bg2.png"
               altText="Tilting Card Image"
-              containerHeight="300px"
-              containerWidth="300px"
-              imageHeight="300px"
-              imageWidth="300px"
+              containerHeight="400px"
+              containerWidth="400px"
+              imageHeight="400px"
+              imageWidth="400px"
               rotateAmplitude={30}
               scaleOnHover={1}
               showMobileWarning={false}
@@ -165,43 +168,53 @@ const App = () => {
               boxShadow: '0 4px 24px rgba(0, 0, 0, 0.2)',
             }}
           >
-            <div className='flex flex-col gap-5 px-5 sm:px-6 py-6 text-white'>
-              <h1 className='text-[#ff0808] font-bold text-sm sm:text-xl uppercase'>About Me</h1>
+            <div className='flex flex-col gap-5 px-6 py-6 text-white'>
+
+              <h1 className='text-[#ff0808] font-bold text-sm sm:text-xl uppercase '>About Me</h1>
+
+              {/* Tagline */}
               <h1 className='text-[#ff0808] font-bold text-base sm:text-xl uppercase tracking-widest leading-snug'>
                 Aspiring Full Stack Developer - Vibe Coder
               </h1>
+
+              {/* Short punchy intro */}
               <p className='text-sm sm:text-lg font-light leading-relaxed text-zinc-200'>
                 I turn ideas into real-world digital experiences — combining clean design
                 with efficient, scalable code.
               </p>
+
+              {/* Divider */}
               <div className='w-12 h-[2px] bg-[#ef4141] rounded-full' />
+
+              {/* Three focused points */}
               <div className='flex flex-col gap-3'>
                 <div className='flex items-start gap-3'>
                   <span className='text-[#ef4141] mt-1 flex-shrink-0'>▹</span>
-                  <p className='text-sm text-zinc-300 leading-relaxed'>
+                  <p className='text-sm sm:text-base text-zinc-300 leading-relaxed'>
                     Specialized in <span className='text-white font-semibold'>HTML, CSS, JavaScript, Tailwind CSS & React.js</span> — building responsive, high-performance interfaces.
                   </p>
                 </div>
                 <div className='flex items-start gap-3'>
                   <span className='text-[#ef4141] mt-1 flex-shrink-0'>▹</span>
-                  <p className='text-sm text-zinc-300 leading-relaxed'>
+                  <p className='text-sm sm:text-base text-zinc-300 leading-relaxed'>
                     Passionate about <span className='text-white font-semibold'>UI/UX principles</span> — every project I build is intuitive, engaging, and visually polished.
                   </p>
                 </div>
                 <div className='flex items-start gap-3'>
                   <span className='text-[#ef4141] mt-1 flex-shrink-0'>▹</span>
-                  <p className='text-sm text-zinc-300 leading-relaxed'>
+                  <p className='text-sm sm:text-base text-zinc-300 leading-relaxed'>
                     Currently expanding into <span className='text-white font-semibold'>backend development</span> — driven by growth, consistency, and impactful solutions.
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
 
-        <h1 className='relative z-10 text-[#ff1717] font-black text-3xl sm:text-5xl md:text-7xl py-6 px-2 sm:px-6 md:px-10'>My Tech Stack</h1>
+        <h1 className='text-[#ff1717] font-black text-3xl sm:text-5xl md:text-7xl py-6'>My Tech Stack</h1>
 
-        <div className='relative z-10 overflow-hidden w-full' style={{ height: '100px' }}>
+        <div className='overflow-hidden w-full' style={{ height: '100px' }}>
           <LogoLoop
             logos={techLogos}
             speed={100}
@@ -217,9 +230,10 @@ const App = () => {
 
       </div>
 
-      {/* ── Contact Section ── */}
+      {/* Contact Section */}
       <div id="contact" className='bg-[#141717ff] min-h-screen relative flex items-center justify-center py-16'>
 
+        {/* LightRays as absolute background */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
           <LightRays
             raysOrigin="top-center"
@@ -238,9 +252,10 @@ const App = () => {
           />
         </div>
 
+        {/* Contact form */}
         <div className='relative z-10 w-full max-w-lg px-5 sm:px-6 py-10'>
-          <h1 className="text-[#ff1717] font-bold text-2xl sm:text-4xl tracking-tight mb-8">Contact Me</h1>
-          <form onSubmit={onSubmit} className='space-y-5'>
+          <h1 className="text-[#ff1717] font-bold text-2xl sm:text-4xl tracking-tight mb-10">Contact Me</h1>
+          <form onSubmit={onSubmit} className='space-y-6'>
             <div className='flex flex-col gap-2'>
               <label htmlFor="name" className='text-xs uppercase tracking-widest text-zinc-500'>Name:</label>
               <input
@@ -270,18 +285,16 @@ const App = () => {
                 className='bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 rounded-xl px-5 py-4 text-sm outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500/40 hover:border-zinc-600 transition-all duration-300 resize-none h-36 w-full'
               />
             </div>
-            <button
-              type='submit'
-              className='bg-violet-500 hover:bg-violet-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 w-full sm:w-auto'
-            >
+            <button type='submit' className='bg-violet-500 hover:bg-violet-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 w-full sm:w-auto'>
               Send Message
             </button>
-            {result && <p className='text-white mt-2 text-sm'>{result}</p>}
+            {result && <p className='text-white mt-2'>{result}</p>}
           </form>
         </div>
+
       </div>
 
-      {/* ── Projects Section ── */}
+      {/* Projects Section */}
       <div id="projects" className='bg-[#141717ff] min-h-screen flex flex-col px-4 sm:px-8 md:px-12 py-12'>
         <div className='rounded-full text-center self-start px-6 py-2 mb-8'
           style={{
@@ -295,20 +308,22 @@ const App = () => {
           <h1 className='text-[#ef4141] text-xl sm:text-3xl font-bold'>Projects</h1>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {arr.map((item, index) => (
-            <Projects
-              key={index}
-              name={item['Project Name']}
-              liveurl={item['Live URL']}
-              Githuburl={item['Github URL']}
-              image={item['image']}
-            />
-          ))}
+        {/* Projects grid — 1 col on mobile, 2 on sm, 3 on lg */}
+        <div className='mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+          {arr.map((item, index) => {
+            return (
+              <Projects
+                key={index}
+                name={item['Project Name']}
+                liveurl={item['Live URL']}
+                Githuburl={item['Github URL']}
+                image={item['image']}
+              />
+            )
+          })}
         </div>
       </div>
 
-      {/* ── Reviews Section ── */}
       <div id="reviews" className='bg-[#141717ff] min-h-screen flex flex-col px-4 sm:px-8 md:px-12 py-12'>
         <div className='rounded-full text-center self-start px-6 py-2 mb-8'
           style={{
