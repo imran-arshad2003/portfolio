@@ -25,6 +25,12 @@ const arr = [
     "Live URL": "https://expensetracker-9tqi9gkfd-imran-arshad2003s-projects.vercel.app/dashboard",
     "Github URL": "https://github.com/imran-arshad2003/expensetracker",
     "image": "/images/expensetracker.png"
+  },
+  {
+    "Project Name": "Landing Page",
+    "Live URL": "https://lunima-landingpage.vercel.app/",
+    "Github URL": "https://github.com/imran-arshad2003/lunima-landingpage",
+    "image": "/images/lumina.png"
   }
 ]
 
